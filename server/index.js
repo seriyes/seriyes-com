@@ -4,6 +4,7 @@ const { buildSchema } = require('graphql');
 const mongo = require('mongoose');
 const { GraphQLModule } = require('@graphql-modules/core');
 const NoteModule = require('./modules/Notes/index');
+const UserModule = require('./modules/Users/index');
 
 mongo.connect('mongodb://new_username:new_password@localhost:27017/cafe-sim', {
   useNewUrlParser: true,
@@ -32,6 +33,7 @@ const graphQlModule = new GraphQLModule({
   resolvers: {},
   imports: [
     NoteModule,
+    UserModule,
   ],
 });
 
