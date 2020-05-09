@@ -12,10 +12,19 @@ const NoteSchema = new mongoose.Schema({
   // userId: {
   //   type: String,
   // },
+}, {
+  strict: false,
 });
+
+// NoteSchema.add({
+//   userId: {
+//     type: String,
+//   },
+// });
 
 const Note = mongoose.model('Note', NoteSchema);
 
 module.exports = {
   Note,
+  NoteSchema,
 };

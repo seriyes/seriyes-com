@@ -32,8 +32,8 @@ const graphQlModule = new GraphQLModule({
   typeDefs: [],
   resolvers: {},
   imports: [
-    NoteModule,
     UserModule,
+    NoteModule,
   ],
 });
 

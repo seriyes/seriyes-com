@@ -1,6 +1,9 @@
 const {
   Note,
 } = require('./models');
+// const {
+//   Note,
+// } = require('../Users/models');
 
 const resolvers = {
   Query: {
@@ -8,8 +11,12 @@ const resolvers = {
       const ret = await Note.find({
         userId: '001',
       });
-      const [first] = ret;
-      console.log(first.userId);
+      console.log({ ret });
+      let [first] = ret;
+      // first = first.toJSON();
+      console.log({ first });
+      console.log({ title: first.title });
+      console.log({ userId: first.userId });
 
       return ret;
     },

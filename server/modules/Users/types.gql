@@ -4,5 +4,5 @@ type User {
 }
 
 type Query {
-  User(email: String): User!
+  user(email: String): User
 }
