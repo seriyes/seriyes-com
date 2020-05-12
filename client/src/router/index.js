@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import CreateContentPage from '@/views/CreateContentPage.vue';
+import ContentListPage from '@/views/ContentListPage.vue';
 import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
@@ -17,6 +19,17 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+  },
+  {
+    path: '/contents',
+    name: 'contents',
+    component: ContentListPage,
+    props: true,
+  },
+  {
+    path: '/create-content',
+    name: 'create-content',
+    component: CreateContentPage,
   },
 ];
 
