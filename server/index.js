@@ -2,9 +2,7 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const { buildSchema } = require('graphql');
 const mongo = require('mongoose');
-const { GraphQLModule } = require('@graphql-modules/core');
-const NoteModule = require('./modules/Notes/index');
-const UserModule = require('./modules/Users/index');
+const AppModule = require('./src/modules/index');
 
 mongo.connect('mongodb://new_username:new_password@localhost:27017/cafe-sim', {
   useNewUrlParser: true,
@@ -28,16 +26,7 @@ const root = {
 };
 
 
-const graphQlModule = new GraphQLModule({
-  typeDefs: [],
-  resolvers: {},
-  imports: [
-    UserModule,
-    NoteModule,
-  ],
-});
-
-const { schema } = graphQlModule;
+const { schema } = AppModule;
 const app = express();
 app.use('/graphql', graphqlHTTP({
   schema,
