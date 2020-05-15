@@ -7,10 +7,22 @@ enum MATTER_TYPE {
 
 type Matter {
   title: String,
-  matterType:MATTER_TYPE,
+  matterType: MATTER_TYPE,
   matterReference: String,
-  user: USER,
+  # user: USER,
 }
 
 type Query {
+  matters(
+    userId: String,
+  ): [Matter]
+}
+
+type Mutation {
+  createMatter(
+    title: String,
+    matterType: MATTER_TYPE,
+    matterReference: String,
+    userId: String,
+  ): Matter
 }
