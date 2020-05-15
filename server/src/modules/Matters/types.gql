@@ -1,0 +1,16 @@
+enum MATTER_TYPE {
+  YOUTUBE
+  TEXT
+  IMAGE
+  URL
+}
+
+type Matter {
+  title: String,
+  matterType:MATTER_TYPE,
+  matterReference: String,
+  user: USER,
+}
+
+type Query {
+}
