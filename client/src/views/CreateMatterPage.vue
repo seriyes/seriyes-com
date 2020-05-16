@@ -1,19 +1,27 @@
 <template>
   <v-container>
-    <v-select
-      :items="items"
-      label="Material Type"
-      outlined
-      v-model="materialType"
-    />
     <v-text-field
-      label="Content"
+      label="Title"
       outlined
-      v-model="content"
+      v-model="title"
     />
+
+    <v-select
+      :items="matterTypes"
+      label="Matter Type"
+      outlined
+      v-model="matterType"
+    />
+
+    <v-text-field
+      label="Matter Reference"
+      outlined
+      v-model="matterReference"
+    />
+
     <v-btn
       color="success"
-      @click="saveContent"
+      @click="saveMatter"
     >
       Save
     </v-btn>
@@ -23,24 +31,34 @@
 <script>
 export default {
   data: () => ({
-    items: ['Youtube', 'Text', 'URL'],
-    materialType: 'Youtube',
-    content: '',
+    matterTypes: ['Youtube', 'Text', 'URL', 'Image'],
+    title: '',
+    matterType: 'Youtube',
+    matterReference: '',
   }),
 
   methods: {
-    saveContent() {
+    async saveMatter() {
       const args = {
-        materialType: this.materialType,
-        content: this.content,
+        title: this.title,
+        matterType: this.matterType,
+        matterReference: this.matterReference,
+        userId: 'u001',
       };
 
-      this.$router.push({
-        name: 'contents',
-        params: {
-          video: args,
-        },
-      });
+      const ret = await this.$MatterService.createMatter(args)
+        .catch((err) => console.error(err));
+
+      console.log({ ret });
+
+      if (ret.data) {
+        this.$router.push({
+          name: 'contents',
+          params: {
+            video: args,
+          },
+        });
+      }
     },
   },
 };
