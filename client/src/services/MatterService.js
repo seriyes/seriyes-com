@@ -4,16 +4,17 @@ import apollo from '@/apollo';
 const services = {
   createMatter(args) {
     const CREATE_MATTER = gql`
-        mutation createMater(
+        mutation createMatter(
           $title: String!,
           $matterType: MATTER_TYPE,
-          $reference: String!
+          $matterReference: String!
           $userId: String!
         ) {
-          createMater(
-            workerId: $workerId,
-            id: $id,
-            to: $to,
+          createMatter(
+            title: $title,
+            matterType: $matterType,
+            matterReference: $matterReference,
+            userId: $userId,
           ) {
             __typename,
             id,

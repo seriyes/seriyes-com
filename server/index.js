@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const graphqlHTTP = require('express-graphql');
 const { buildSchema } = require('graphql');
 const mongo = require('mongoose');
@@ -28,6 +29,8 @@ const root = {
 
 const { schema } = AppModule;
 const app = express();
+app.use(cors());
+app.options('*', cors());
 app.use('/graphql', graphqlHTTP({
   schema,
   rootValue: root,

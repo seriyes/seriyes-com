@@ -19,6 +19,7 @@ const MatterSchema = new mongoose.Schema({
   },
 }, {
   strict: false,
+  timestamps: true,
 });
 
 const Matter = mongoose.model('Matter', MatterSchema);

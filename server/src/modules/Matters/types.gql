@@ -6,6 +6,7 @@ enum MATTER_TYPE {
 }
 
 type Matter {
+  id: ID
   title: String,
   matterType: MATTER_TYPE,
   matterReference: String,

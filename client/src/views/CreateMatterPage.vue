@@ -41,7 +41,7 @@ export default {
     async saveMatter() {
       const args = {
         title: this.title,
-        matterType: this.matterType,
+        matterType: this.matterType.toUpperCase(),
         matterReference: this.matterReference,
         userId: 'u001',
       };
