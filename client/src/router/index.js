@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import CreateContentPage from '@/views/CreateContentPage.vue';
+import CreateMatterPage from '@/views/CreateMatterPage.vue';
 import ContentListPage from '@/views/ContentListPage.vue';
 import Home from '../views/Home.vue';
 
@@ -27,9 +27,9 @@ const routes = [
     props: true,
   },
   {
-    path: '/create-content',
-    name: 'create-content',
-    component: CreateContentPage,
+    path: '/create-matter',
+    name: 'create-matter',
+    component: CreateMatterPage,
   },
 ];
 
