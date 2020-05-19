@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import CreateFolderPage from '@/views/CreateFolderPage.vue';
 import CreateMatterPage from '@/views/CreateMatterPage.vue';
 import ContentListPage from '@/views/ContentListPage.vue';
 import Home from '../views/Home.vue';
@@ -30,6 +31,11 @@ const routes = [
     path: '/create-matter',
     name: 'create-matter',
     component: CreateMatterPage,
+  },
+  {
+    path: '/create-folder',
+    name: 'create-folder',
+    component: CreateFolderPage,
   },
 ];
 

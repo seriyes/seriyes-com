@@ -6,6 +6,11 @@
     >
       GO
     </v-btn>
+    <v-btn
+      @click="$router.push('/create-folder')"
+    >
+      Create Folder
+    </v-btn>
   </v-container>
 </template>
 
