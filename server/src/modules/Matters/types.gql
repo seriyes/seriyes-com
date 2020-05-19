@@ -13,6 +13,10 @@ type Matter {
   # user: USER,
 }
 
+# extend type Folder {
+#   matters: [Matter]
+# }
+
 type Query {
   matters(
     userId: String,
