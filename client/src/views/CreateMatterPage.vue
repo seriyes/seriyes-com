@@ -19,6 +19,8 @@
       v-model="matterReference"
     />
 
+    <FolderSelect />
+
     <v-btn
       color="success"
       @click="saveMatter"
@@ -29,7 +31,13 @@
 </template>
 
 <script>
+import FolderSelect from '@/components/Selects/FolderSelect.vue';
+
 export default {
+  components: {
+    FolderSelect,
+  },
+
   data: () => ({
     matterTypes: ['Youtube', 'Text', 'URL', 'Image'],
     title: '',
