@@ -28,12 +28,11 @@ jobs:
         cd client
         npm ci
         npm run lint
-    - name: Build Vue App
+    - name: Build & Deploy Vue App
       run: |
         cd client
         npm ci
         npm run build
-    - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
