@@ -4,6 +4,7 @@
   "description": "Seriyes Server",
   "main": "index.js",
   "scripts": {
+    "pretest": "eslint --ext .html,.js .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "L16H7",
