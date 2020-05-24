@@ -1,39 +1,39 @@
 const {
-  Matter,
+  File,
 } = require('./models');
 
 const resolvers = {
   Query: {
-    matters: async (root, data) => {
+    files: async (root, data) => {
       const {
         userId,
       } = data;
 
-      const matters = await Matter.find({
+      const files = await File.find({
         userId,
       }).catch((err) => console.error(err));
 
-      return matters;
+      return files;
     },
   },
 
   Mutation: {
-    createMatter: async (root, data) => {
+    createFile: async (root, data) => {
       const {
         title,
-        matterType,
-        matterReference,
+        fileType,
+        fileReference,
         userId,
       } = data;
 
-      const matter = new Matter({
+      const file = new File({
         title,
-        matterType,
-        matterReference,
+        fileType,
+        fileReference,
         userId,
       });
 
-      const ret = await matter.save()
+      const ret = await file.save()
         .catch((err) => console.error(err));
 
       return ret;

@@ -7,23 +7,23 @@
     />
 
     <v-select
-      :items="matterTypes"
-      label="Matter Type"
+      :items="fileTypes"
+      label="File Type"
       outlined
-      v-model="matterType"
+      v-model="fileType"
     />
 
     <v-text-field
-      label="Matter Reference"
+      label="File Reference"
       outlined
-      v-model="matterReference"
+      v-model="fileReference"
     />
 
     <FolderSelect />
 
     <v-btn
       color="success"
-      @click="saveMatter"
+      @click="saveFile"
     >
       Save
     </v-btn>
@@ -39,22 +39,22 @@ export default {
   },
 
   data: () => ({
-    matterTypes: ['Youtube', 'Text', 'URL', 'Image'],
+    fileTypes: ['Youtube', 'Text', 'URL', 'Image'],
     title: '',
-    matterType: 'Youtube',
-    matterReference: '',
+    fileType: 'Youtube',
+    fileReference: '',
   }),
 
   methods: {
-    async saveMatter() {
+    async saveFile() {
       const args = {
         title: this.title,
-        matterType: this.matterType.toUpperCase(),
-        matterReference: this.matterReference,
+        fileType: this.fileType.toUpperCase(),
+        fileReference: this.fileReference,
         userId: 'u001',
       };
 
-      const ret = await this.$MatterService.createMatter(args)
+      const ret = await this.$FileService.createFile(args)
         .catch((err) => console.error(err));
 
       console.log({ ret });

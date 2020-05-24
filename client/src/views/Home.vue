@@ -2,7 +2,7 @@
   <v-container>
     Home
     <v-btn
-      @click="$router.push('/create-matter')"
+      @click="$router.push('/create-file')"
     >
       GO
     </v-btn>

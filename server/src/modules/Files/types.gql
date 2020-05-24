@@ -1,0 +1,33 @@
+enum FILE_TYPE {
+  YOUTUBE
+  TEXT
+  IMAGE
+  URL
+}
+
+type File {
+  id: ID
+  title: String,
+  fileType: FILE_TYPE,
+  fileReference: String,
+  # user: USER,
+}
+
+# extend type Folder {
+#   files: [File]
+# }
+
+type Query {
+  files(
+    userId: String,
+  ): [File]
+}
+
+type Mutation {
+  createFile(
+    title: String,
+    fileType: FILE_TYPE,
+    fileReference: String,
+    userId: String,
+  ): File
+}

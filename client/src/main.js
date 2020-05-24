@@ -6,10 +6,10 @@ import router from '@/router';
 import store from '@/store';
 import vuetify from '@/plugins/vuetify';
 
-import MatterService from '@/services/MatterService';
+import FileService from '@/services/FileService';
 import FolderService from '@/services/FolderService';
 
-Vue.use(MatterService);
+Vue.use(FileService);
 Vue.use(FolderService);
 
 Vue.config.productionTip = false;

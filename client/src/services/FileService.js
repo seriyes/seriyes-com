@@ -2,18 +2,18 @@ import gql from 'graphql-tag';
 import apollo from '@/apollo';
 
 const services = {
-  createMatter(args) {
-    const CREATE_MATTER = gql`
-        mutation createMatter(
+  createFile(args) {
+    const CREATE_FILE = gql`
+        mutation createFile(
           $title: String!,
-          $matterType: MATTER_TYPE,
-          $matterReference: String!
+          $fileType: FILE!,
+          $fileReference: String!
           $userId: String!
         ) {
-          createMatter(
+          createFile(
             title: $title,
-            matterType: $matterType,
-            matterReference: $matterReference,
+            fileType: $fileType,
+            fileReference: $fileReference,
             userId: $userId,
           ) {
             __typename,
@@ -22,17 +22,17 @@ const services = {
         }
       `;
     return apollo.defaultClient.mutate({
-      mutation: CREATE_MATTER,
+      mutation: CREATE_FILE,
       variables: args,
     });
   },
 };
 
-const MatterService = {
+const FileService = {
   install(Vue) {
     // eslint-disable-next-line no-param-reassign
-    Vue.prototype.$MatterService = services;
+    Vue.prototype.$FileService = services;
   },
 };
 
-export default MatterService;
+export default FileService;

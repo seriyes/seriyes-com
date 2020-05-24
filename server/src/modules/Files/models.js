@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
-const MatterSchema = new mongoose.Schema({
+const FileSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
   },
-  matterType: {
+  fileType: {
     type: String,
     required: true,
   },
-  matterReference: {
+  fileReference: {
     type: String,
     required: true,
   },
@@ -22,8 +22,8 @@ const MatterSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-const Matter = mongoose.model('Matter', MatterSchema);
+const File = mongoose.model('File', FileSchema);
 
 module.exports = {
-  Matter,
+  File,
 };
