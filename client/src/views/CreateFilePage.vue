@@ -13,7 +13,14 @@
       v-model="fileType"
     />
 
+    <v-textarea
+      v-if="fileType === 'Text'"
+      label="Text"
+      v-model="fileReference"
+      outlined
+    />
     <v-text-field
+      v-else
       label="File Reference"
       outlined
       v-model="fileReference"
