@@ -7,11 +7,11 @@ const resolvers = require('./resolvers');
 
 
 const FileModule = new GraphQLModule({
-  // imports: {
-  //   FolderModule,
-  // },
   typeDefs,
   resolvers,
+  imports: [
+    FolderModule,
+  ],
 });
 
 module.exports = FileModule;

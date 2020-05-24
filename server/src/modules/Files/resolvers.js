@@ -41,6 +41,17 @@ const resolvers = {
       return ret;
     },
   },
+
+  Folder: {
+    files: async (folder) => {
+      const files = await File.find({
+        _id: {
+          $in: folder.filesIds,
+        },
+      });
+      return files;
+    },
+  },
 };
 
 module.exports = resolvers;

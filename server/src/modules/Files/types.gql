@@ -12,9 +12,9 @@ type File {
   # user: USER,
 }
 
-# extend type Folder {
-#   files: [File]
-# }
+extend type Folder {
+  files: [File]
+}
 
 type Query {
   files(
