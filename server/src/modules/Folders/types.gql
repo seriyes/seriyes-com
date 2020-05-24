@@ -15,4 +15,8 @@ type Mutation {
     name: String!,
     userId: String,
   ): Folder
+  addFileToFolder(
+    folderId: ID!,
+    fileId: ID!,
+  ): Folder,
 }

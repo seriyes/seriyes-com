@@ -34,6 +34,25 @@ const resolvers = {
 
       return ret;
     },
+
+    addFileToFolder: async (root, data) => {
+      const {
+        folderId,
+        fileId,
+      } = data;
+
+      const ret = await Folder.findOneAndUpdate({
+        _id: folderId,
+      }, {
+        $addToSet: {
+          filesIds: fileId,
+        },
+      }, {
+        new: true,
+      }).catch((err) => console.error(err));
+
+      return ret;
+    },
   },
 };
 

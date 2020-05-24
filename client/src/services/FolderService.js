@@ -2,8 +2,8 @@ import gql from 'graphql-tag';
 import apollo from '@/apollo';
 
 const services = {
-  createFolder(args) {
-    const CREATE_FOLDER = gql`
+  createFolder(variables) {
+    const mutation = gql`
         mutation createFolder(
           $name: String!,
           $userId: String
@@ -18,8 +18,29 @@ const services = {
         }
       `;
     return apollo.defaultClient.mutate({
-      mutation: CREATE_FOLDER,
-      variables: args,
+      mutation,
+      variables,
+    });
+  },
+
+  addFileToFolder(variables) {
+    const mutation = gql`
+      mutation addFileToFolder(
+        $folderId: ID!,
+        $fileId: ID!,
+      ) {
+        addFileToFolder(
+          folderId: $folderId,
+          fileId: $fileId,
+        ) {
+          __typename,
+          id,
+        }
+      }
+    `;
+    return apollo.defaultClient.mutate({
+      mutation,
+      variables,
     });
   },
 };

@@ -3,15 +3,16 @@ import apollo from '@/apollo';
 
 const services = {
   createFile(args) {
+    console.log('FileService.createFile', args);
     const CREATE_FILE = gql`
         mutation createFile(
-          $title: String!,
-          $fileType: FILE!,
+          $name: String!,
+          $fileType: FILE_TYPE!,
           $fileReference: String!
           $userId: String!
         ) {
           createFile(
-            title: $title,
+            name: $name,
             fileType: $fileType,
             fileReference: $fileReference,
             userId: $userId,

@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <v-text-field
-      label="Title"
+      label="Name"
       outlined
-      v-model="title"
+      v-model="name"
     />
 
     <v-select
@@ -19,7 +19,9 @@
       v-model="fileReference"
     />
 
-    <FolderSelect />
+    <FolderSelect
+      @folderChanged="setFolderId"
+    />
 
     <v-btn
       color="success"
@@ -39,33 +41,40 @@ export default {
   },
 
   data: () => ({
-    fileTypes: ['Youtube', 'Text', 'URL', 'Image'],
-    title: '',
+    fileTypes: ['Youtube', 'Text', 'URL'],
+    name: '',
     fileType: 'Youtube',
     fileReference: '',
+    folderId: '',
   }),
 
   methods: {
+    setFolderId(folderId) {
+      this.folderId = folderId;
+    },
+
     async saveFile() {
       const args = {
-        title: this.title,
+        name: this.name,
         fileType: this.fileType.toUpperCase(),
         fileReference: this.fileReference,
         userId: 'u001',
       };
 
-      const ret = await this.$FileService.createFile(args)
+      const { data } = await this.$FileService.createFile(args)
         .catch((err) => console.error(err));
 
-      console.log({ ret });
-
-      if (ret.data) {
-        this.$router.push({
-          name: 'contents',
-          params: {
-            video: args,
-          },
-        });
+      if (data) {
+        const args2 = {
+          folderId: this.folderId,
+          fileId: data.createFile.id,
+        };
+        const ret2 = await this.$FolderService.addFileToFolder(args2);
+        if (ret2.data) {
+          this.$router.push({
+            name: 'contents',
+          });
+        }
       }
     },
   },

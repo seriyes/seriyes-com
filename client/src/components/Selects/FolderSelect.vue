@@ -6,6 +6,7 @@
     item-value="id"
     outlined
     v-model="folderId"
+    @change="folderChanged"
   />
 </template>
 
@@ -17,6 +18,12 @@ export default {
     folderId: '',
     folders: [],
   }),
+
+  methods: {
+    folderChanged() {
+      this.$emit('folderChanged', this.folderId);
+    },
+  },
 
   apollo: {
     folders: {

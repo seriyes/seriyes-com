@@ -1,13 +1,12 @@
 enum FILE_TYPE {
   YOUTUBE
   TEXT
-  IMAGE
   URL
 }
 
 type File {
   id: ID
-  title: String,
+  name: String,
   fileType: FILE_TYPE,
   fileReference: String,
   # user: USER,
@@ -25,9 +24,9 @@ type Query {
 
 type Mutation {
   createFile(
-    title: String,
-    fileType: FILE_TYPE,
-    fileReference: String,
-    userId: String,
+    name: String!,
+    fileType: FILE_TYPE!,
+    fileReference: String!,
+    userId: String!,
   ): File
 }

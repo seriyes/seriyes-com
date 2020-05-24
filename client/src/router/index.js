@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import CreateFolderPage from '@/views/CreateFolderPage.vue';
-import CreateFilePage from '@/views/CreateFilePage.vue';
 import ContentListPage from '@/views/ContentListPage.vue';
+import CreateFilePage from '@/views/CreateFilePage.vue';
 import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);

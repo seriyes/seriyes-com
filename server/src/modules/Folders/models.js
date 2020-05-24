@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { ObjectId } = require('mongoose').Schema.Types;
 
 const FolderSchema = new mongoose.Schema({
   name: {
@@ -9,6 +10,10 @@ const FolderSchema = new mongoose.Schema({
     type: String,
     ref: 'User',
   },
+  filesIds: [{
+    type: ObjectId,
+    ref: 'File',
+  }],
 }, {
   strict: false,
   timestamps: true,

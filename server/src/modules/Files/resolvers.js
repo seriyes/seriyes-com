@@ -20,16 +20,18 @@ const resolvers = {
   Mutation: {
     createFile: async (root, data) => {
       const {
-        title,
+        name,
         fileType,
         fileReference,
+        folderId,
         userId,
       } = data;
 
       const file = new File({
-        title,
+        name,
         fileType,
         fileReference,
+        folderId,
         userId,
       });
 
