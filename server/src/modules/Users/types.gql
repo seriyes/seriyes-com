@@ -6,3 +6,7 @@ type User {
 type Query {
   user(email: String): User
 }
+
+type Mutation {
+  createUser(email: String, username: String): User
+}
